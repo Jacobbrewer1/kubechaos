@@ -6,7 +6,6 @@ import (
 
 	"github.com/caarlos0/env/v10"
 
-	"github.com/jacobbrewer1/kubechaos/pkg/chaos"
 	"github.com/jacobbrewer1/web"
 	"github.com/jacobbrewer1/web/logging"
 )
