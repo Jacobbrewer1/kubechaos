@@ -10,6 +10,7 @@ go_library(
     importpath = "github.com/jacobbrewer1/kubechaos/pkg/chaos",
     visibility = ["//visibility:public"],
     deps = [
+        "//pkg/logging",
         "@com_github_jacobbrewer1_web//:web",
         "@com_github_jacobbrewer1_web//logging",
         "@io_k8s_api//core/v1:core",
