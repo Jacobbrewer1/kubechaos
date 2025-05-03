@@ -20,6 +20,10 @@ use_repo(
     "com_github_caarlos0_env_v10",
     "com_github_jacobbrewer1_web",
     "com_github_magefile_mage",
+    "com_github_stretchr_testify",
+    "io_k8s_api",
+    "io_k8s_apimachinery",
+    "io_k8s_client_go",
     "org_uber_go_mock",
 )
 

@@ -6,6 +6,7 @@ import (
 
 	"github.com/caarlos0/env/v10"
 
+	"github.com/jacobbrewer1/kubechaos/pkg/chaos"
 	"github.com/jacobbrewer1/web"
 	"github.com/jacobbrewer1/web/logging"
 )
@@ -28,6 +29,7 @@ type (
 	}
 )
 
+// NewApp creates a new App instance with the given logger.
 func NewApp(l *slog.Logger) (*App, error) {
 	base, err := web.NewApp(l)
 	if err != nil {
@@ -45,19 +47,23 @@ func NewApp(l *slog.Logger) (*App, error) {
 	}, nil
 }
 
+// Start initializes the app and starts the base application.
 func (a *App) Start() error {
 	if err := a.base.Start(
 		web.WithInClusterKubeClient(),
+		web.WithIndefiniteAsyncTask("pod-chaos", a.podChaos),
 	); err != nil {
 		return err
 	}
 	return nil
 }
 
+// WaitForEnd waits for the application to finish processing.
 func (a *App) WaitForEnd() {
 	a.base.WaitForEnd(a.Shutdown)
 }
 
+// Shutdown gracefully shuts down the application.
 func (a *App) Shutdown() {
 	a.base.Shutdown()
 }

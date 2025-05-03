@@ -3,10 +3,14 @@ load("//tools/bazel/oci:build_container.bzl", "build_container")
 
 go_library(
     name = "chaos_lib",
-    srcs = ["main.go"],
+    srcs = [
+        "main.go",
+        "tasks.go",
+    ],
     importpath = "github.com/jacobbrewer1/kubechaos/cmd/chaos",
     visibility = ["//visibility:private"],
     deps = [
+        "//pkg/chaos",
         "@com_github_caarlos0_env_v10//:env",
         "@com_github_jacobbrewer1_web//:web",
         "@com_github_jacobbrewer1_web//logging",
