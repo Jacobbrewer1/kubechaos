@@ -20,6 +20,7 @@ use_repo(
     "com_github_caarlos0_env_v10",
     "com_github_jacobbrewer1_web",
     "com_github_magefile_mage",
+    "org_uber_go_mock",
 )
 
 # Install base OCI images

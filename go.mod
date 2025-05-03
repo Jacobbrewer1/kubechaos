@@ -8,6 +8,7 @@ require (
 	github.com/caarlos0/env/v10 v10.0.0
 	github.com/jacobbrewer1/web v0.0.7-0.20250502102420-95c900aba729
 	github.com/magefile/mage v1.15.0
+	go.uber.org/mock v0.4.0
 )
 
 require (

@@ -1,4 +1,5 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("//tools/bazel/oci:build_container.bzl", "build_container")
 
 go_library(
     name = "chaos_lib",
@@ -17,3 +18,5 @@ go_binary(
     embed = [":chaos_lib"],
     visibility = ["//visibility:public"],
 )
+
+build_container("chaos")
