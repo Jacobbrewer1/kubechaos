@@ -35,7 +35,7 @@ func IndefinitePodChaos(
 				return
 			case <-time.After(time.Duration(randInt.Int64()) * time.Millisecond):
 				if err := executePodChaos(ctx, l, kubeClient, podLister); err != nil {
-					l.Error("error executing pod chaos", slog.String("error", err.Error()))
+					l.Error("error executing pod chaos", slog.String(logging.KeyError, err.Error()))
 				}
 			}
 		}
