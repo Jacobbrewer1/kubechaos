@@ -8,10 +8,10 @@ import (
 )
 
 func (a *App) podChaos(ctx context.Context) {
-	podATask := chaos.IndefinitePodChaos(
+	podChaosTask := chaos.IndefinitePodChaos(
 		logging.LoggerWithComponent(a.base.Logger(), "pod-chaos"),
 		a.base.KubeClient(),
 		a.base.PodLister(),
 	)
-	podATask(ctx)
+	podChaosTask(ctx)
 }
