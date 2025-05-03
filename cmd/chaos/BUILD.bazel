@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "chaos_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/jacobbrewer1/kubechaos/cmd/chaos",
+    visibility = ["//visibility:private"],
+    deps = [
+        "@com_github_caarlos0_env_v10//:env",
+        "@com_github_jacobbrewer1_web//:web",
+        "@com_github_jacobbrewer1_web//logging",
+    ],
+)
+
+go_binary(
+    name = "chaos",
+    embed = [":chaos_lib"],
+    visibility = ["//visibility:public"],
+)
