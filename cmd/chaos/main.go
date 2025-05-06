@@ -50,6 +50,7 @@ func NewApp(l *slog.Logger) (*App, error) {
 func (a *App) Start() error {
 	if err := a.base.Start(
 		web.WithInClusterKubeClient(),
+		web.WithKubernetesPodInformer(),
 		web.WithIndefiniteAsyncTask("pod-chaos", a.podChaos),
 	); err != nil {
 		return err
